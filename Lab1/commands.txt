@@ -1,0 +1,4 @@
+aws s3api create-bucket --bucket rostik-super-bucket-v1 --region us-east-1  --create-bucket-configuration LocationConstraint=us-east-1  \
+  &&  aws s3api put-bucket-policy --bucket rostik-super-bucket-v1 --policy file:///home/rostik/s3  \
+  &&  aws s3 sync /$HOME/s3 s3://rostik-super-bucket-v1/  \
+  &&  aws s3 website s3://rostik-super-bucket-v1/ --index-document index.html --error-document error.html
